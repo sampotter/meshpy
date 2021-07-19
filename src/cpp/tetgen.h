@@ -450,7 +450,7 @@ public:
   //   memory was allocated by the "new" operator (C++).
   void deinitialize()
   {
-    int i, j;
+    int i;
 
     if (pointlist != (REAL *) NULL) {
       delete [] pointlist;

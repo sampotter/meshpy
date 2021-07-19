@@ -541,7 +541,9 @@ int test_double(int verbose)
 /*  Don't change this routine unless you fully understand it.                */
 /*                                                                           */
 /*****************************************************************************/
+#ifdef CPU86
 static int previous_cword;
+#endif /* CPU86 */
 
 void exactinit(int verbose, int noexact, int nofilter, REAL maxx, REAL maxy, 
                REAL maxz)

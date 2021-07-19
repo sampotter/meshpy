@@ -40,7 +40,7 @@ namespace {
         pybind11::list l;
         for (unsigned i = 0; i<self.unit();i++)
           l.append(self.getSub(idx, i));
-        return l;
+        return std::move(l);
       }
       else
         return pybind11::cast(self.get(idx));
@@ -71,7 +71,7 @@ namespace {
       {
         pybind11::sequence value_seq = pybind11::cast<pybind11::sequence>(value);
 
-        if ((long) self.unit() != len(value))
+        if (self.unit() != len(value))
           PYTHON_ERROR(ValueError, "value must be a sequence of length self.unit");
 
         for (size_t i = 0; i<len(value);i++)
